@@ -3,6 +3,7 @@ package br.edu.unipaulista.backend.Blog.domainModel;
 import lombok.*;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -16,4 +17,16 @@ public class User {
     private @Getter @Setter String password;
     private @Getter @Setter List<Role> roles;
     private @Getter @Setter Profile profile;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

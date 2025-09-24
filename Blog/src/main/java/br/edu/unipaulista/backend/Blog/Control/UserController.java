@@ -37,4 +37,14 @@ public class UserController {
     public User createUser(@RequestBody User user) {
         return this.userService.create(user);
     }
+
+    @PutMapping
+    public User updateUser(@RequestBody User user) {
+        return this.userService.update(user);
+    }
+
+    @PatchMapping
+    public User patchUser(@RequestBody User user) {
+        return this.userService.partialUpdate(user);
+    }
 }

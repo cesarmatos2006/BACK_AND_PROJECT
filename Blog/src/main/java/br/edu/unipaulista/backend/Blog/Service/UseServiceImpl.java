@@ -39,4 +39,14 @@ public class UseServiceImpl implements UserService {
         }
         return user;
     }
+
+    @Override
+    public User update(User user) {
+        return this.repository.update(user);
+    }
+
+    @Override
+    public User partialUpdate(User user) {
+        return this.repository.update(user);
+    }
 }

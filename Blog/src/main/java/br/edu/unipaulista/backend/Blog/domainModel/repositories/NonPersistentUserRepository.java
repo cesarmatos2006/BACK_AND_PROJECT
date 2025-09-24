@@ -51,4 +51,10 @@ public class NonPersistentUserRepository {
         this.internalState.add(user);
         return user;
     }
+
+    public User update(User user) {
+        this.internalState.remove(user);
+        this.internalState.add(user);
+        return user;
+    }
 }
