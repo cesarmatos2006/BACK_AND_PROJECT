@@ -18,13 +18,13 @@ public class PostController {
     private final PostService postService;
 
     @GetMapping
-    public ResponseEntity<List<Post>> findAll() {return ResponseEntity.ok(postService.findAll());}
+    public ResponseEntity<List<Post>> findAll() {return ResponseEntity.ok(this.postService.findAll());}
 
     @GetMapping
     public ResponseEntity<Post> findPostById(@PathVariable UUID id) {return ResponseEntity.ok(this.postService.findById(id));}
 
     @DeleteMapping
-    public ResponseEntity<Void> deletePostById(@PathVariable UUID id) {
+    public ResponseEntity<Post> deletePostById(@PathVariable UUID id) {
         this.postService.deleteById(id);
         return ResponseEntity.notFound().build();
     }
@@ -39,6 +39,7 @@ public class PostController {
         return new ResponseEntity<>(this.postService.update(post), HttpStatus.CREATED);
     }
 
+    @PatchMapping
    public ResponseEntity<Post> PatchPost(@RequestBody Post post) {
         return new ResponseEntity<>(this.postService.partialUpdate(post), HttpStatus.CREATED);
    }
