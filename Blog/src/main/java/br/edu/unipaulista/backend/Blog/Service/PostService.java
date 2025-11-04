@@ -10,7 +10,7 @@ public interface PostService {
 
     Post findById(UUID id);
 
-    Post deleteById(UUID id);
+    void deleteById(UUID id);
 
     Post create(Post post);
 

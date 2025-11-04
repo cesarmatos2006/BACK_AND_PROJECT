@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping
+@RequestMapping("/profiles")
 @RequiredArgsConstructor
 public class ProfileController {
     private final ProfileService profileService;
@@ -20,10 +20,10 @@ public class ProfileController {
     @GetMapping
     public ResponseEntity<List<Profile>> findAll() {return ResponseEntity.ok(this.profileService.findAll());}
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<Profile> findProfileById(@PathVariable UUID id) {return ResponseEntity.ok(this.profileService.findById(id));}
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Profile> deleteProfileById(@PathVariable UUID id) {
         this.profileService.deleteById(id);
         return ResponseEntity.notFound().build();

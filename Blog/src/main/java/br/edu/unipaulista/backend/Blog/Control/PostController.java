@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 @RestController
-@RequestMapping
+@RequestMapping("/posts")
 @RequiredArgsConstructor
 public class PostController {
     private final PostService postService;
@@ -20,10 +20,10 @@ public class PostController {
     @GetMapping
     public ResponseEntity<List<Post>> findAll() {return ResponseEntity.ok(this.postService.findAll());}
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<Post> findPostById(@PathVariable UUID id) {return ResponseEntity.ok(this.postService.findById(id));}
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Post> deletePostById(@PathVariable UUID id) {
         this.postService.deleteById(id);
         return ResponseEntity.notFound().build();

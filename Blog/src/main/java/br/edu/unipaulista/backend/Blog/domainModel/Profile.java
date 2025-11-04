@@ -6,13 +6,15 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.*;
 
+import java.util.UUID;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @Entity
 public class Profile {
     @Id
-    private @Getter @Setter long id;
+    private @Getter @Setter UUID id;
     private @Getter @Setter String bio;
     private @Getter @Setter String pictureUrl;
 

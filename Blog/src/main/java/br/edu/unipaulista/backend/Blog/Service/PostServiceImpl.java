@@ -20,7 +20,7 @@ public class PostServiceImpl implements PostService {
     public Post findById(UUID id) {return this.repository.findById(id).orElse(null);}
 
     @Override
-    public Post deleteById(UUID id) {return this.repository.deleteById(id);}
+    public void deleteById(UUID id) {this.repository.deleteById(id);}
 
     @Override
     public Post create(Post post) {return this.repository.save(post);}

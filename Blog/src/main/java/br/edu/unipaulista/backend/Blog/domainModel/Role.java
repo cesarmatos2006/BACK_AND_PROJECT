@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Set;
+import java.util.UUID;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -11,13 +12,16 @@ import java.util.Set;
 @Entity
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private @Getter @Setter long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private @Getter @Setter UUID id;
 
-    @Column(name = "NAEME", nullable = false, length = 20)
+    @Column(name = "NAME", nullable = false, length = 20)
     private @Getter @Setter String name;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "roles")
     private @Getter @Setter Set<User> user;
+
+    public Role orElse(Object o) {
+    return null;
+    }
 }
