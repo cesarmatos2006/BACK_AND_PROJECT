@@ -2,6 +2,7 @@ package br.edu.unipaulista.backend.Blog.domainModel;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
 import java.util.Objects;
@@ -48,5 +49,9 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    public UserDetails get() {
+        return null;
     }
 }
